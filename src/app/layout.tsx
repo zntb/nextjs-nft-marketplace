@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
-// import { Providers } from '@/components/shared/Providers';
 import { ThirdwebProvider } from 'thirdweb/react';
 import { ThemeProvider } from 'next-themes';
 import { Navbar } from '@/components/shared/Navbar';
