@@ -28,10 +28,15 @@ export function Navbar() {
   const wallet = useActiveWallet();
 
   return (
-    <header className='w-full h-20 p-4'>
+    <header className='w-full h-20 p-6'>
       <div className='flex justify-between gap-3'>
         <nav className='hidden md:flex items-center justify-center w-full max-w-xs gap-1'>
-          <Link href='/'>ZNTB-MART</Link>
+          <Link
+            className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'
+            href='/'
+          >
+            ZNTB-MART
+          </Link>
         </nav>
         <div className='flex gap-1'>
           <div className='flex items-center gap-2'>
