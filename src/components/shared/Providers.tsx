@@ -1,14 +1,16 @@
 'use client';
 
-import { defaultSystem } from '@chakra-ui/react';
-import { ChakraProvider } from '@chakra-ui/react';
-import type { ReactNode } from 'react';
+import * as React from 'react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ThirdwebProvider } from 'thirdweb/react';
 
-export function Providers({ children }: { children: ReactNode }) {
+export function Providers({
+  children,
+  ...props
+}: React.ComponentProps<typeof NextThemesProvider>) {
   return (
-    <ChakraProvider value={defaultSystem}>
+    <NextThemesProvider {...props}>
       <ThirdwebProvider>{children}</ThirdwebProvider>
-    </ChakraProvider>
+    </NextThemesProvider>
   );
 }
