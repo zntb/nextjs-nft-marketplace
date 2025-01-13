@@ -18,6 +18,7 @@ import type { Wallet } from 'thirdweb/wallets';
 export function Navbar() {
   const account = useActiveAccount();
   const wallet = useActiveWallet();
+
   return (
     <Box py='30px' px={{ base: '20px', lg: '50px' }}>
       <Flex direction='row' justifyContent='space-between'>
@@ -25,7 +26,7 @@ export function Navbar() {
           <NextLink href='/' style={{ textDecoration: 'none' }}>
             <Heading>
               {/* Replace this with your own branding */}
-              THIRDMART
+              ZNTBMART
             </Heading>
           </NextLink>
         </Box>
@@ -70,8 +71,14 @@ function ProfileButton({
         borderColor='gray.700'
         boxShadow='lg'
         borderRadius='md'
-        minW='200px'
+        minW='10rem'
+        p={2}
       >
+        <MenuItem value='connect' display='flex' pb={2}>
+          <Box mx='auto'>
+            <ConnectButton client={client} />
+          </Box>
+        </MenuItem>
         <MenuItem
           value='profile'
           _hover={{ bg: 'gray.700' }}
