@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import { Providers } from '@/components/shared/Providers';
+import { Toaster } from '@/components/ui/toaster';
+// import { Providers } from '@/components/shared/Providers';
+import { ThirdwebProvider } from 'thirdweb/react';
+import { ThemeProvider } from 'next-themes';
 import { Navbar } from '@/components/shared/Navbar';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -25,12 +28,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Providers>
-          <Navbar />
-          {children}
-        </Providers>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ThirdwebProvider>
+            <Navbar />
+            {children}
+            <Toaster />
+          </ThirdwebProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
