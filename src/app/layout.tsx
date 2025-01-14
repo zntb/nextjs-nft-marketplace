@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
 import { ThirdwebProvider } from 'thirdweb/react';
+import { AutoConnect } from 'thirdweb/react';
+import { client } from '@/consts/client';
 import { ThemeProvider } from 'next-themes';
 import { Navbar } from '@/components/shared/Navbar';
 import { Geist, Geist_Mono } from 'next/font/google';
@@ -36,6 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThirdwebProvider>
+            <AutoConnect client={client} />
             <Navbar />
             {children}
             <Toaster />

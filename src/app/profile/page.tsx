@@ -1,6 +1,6 @@
 'use client';
 
-import ProfileSection from '@/components/profile-page/Profile';
+import { ProfileSection } from '@/components/profile-page/Profile';
 import { client } from '@/consts/client';
 
 import { useEffect } from 'react';
@@ -16,10 +16,11 @@ export default function ProfilePage() {
   }, [account, connect]);
   if (!account)
     return (
-      <div className='flex items-center justify-center h-screen'>
-        <h1 className='text-2xl font-bold'>Log in to continue</h1>
-        <div className='m-auto'>Log in to continue</div>
+      <div className='min-h-screen flex flex-col'>
+        <div className='flex-1 flex items-center justify-center'>
+          <h1 className='text-2xl font-bold'>Log in to continue</h1>
+        </div>
       </div>
     );
-  return <ProfileSection />;
+  return <ProfileSection address={account.address} />;
 }
